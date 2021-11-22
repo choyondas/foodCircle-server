@@ -27,6 +27,7 @@ async function run() {
         const productsCollection = database.collection('products');
         const ordersCollection = database.collection('orders');
         const reviewCollection = database.collection('review');
+        const restaurantCollection = database.collection('restaurant');
 
 
         //post products
@@ -44,6 +45,11 @@ async function run() {
             const cursor = productsCollection.find({});
             const products = await cursor.toArray();
             res.send(products);
+        })
+        app.get('/restaurant', async (req, res) => {
+            const cursor = restaurantCollection.find({});
+            const restaurant = await cursor.toArray();
+            res.send(restaurant);
         })
 
 
